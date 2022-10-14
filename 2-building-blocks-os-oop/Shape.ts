@@ -21,14 +21,11 @@ export default abstract class Shape {
   }
 
   public getPerimeter(): number {
-    return this.points.reduce((perimeter, point, index) => {
-      if (index > this.points.length - 1 ) {
-        return perimeter;
+    return this.points.reduce((perimeter, point, index, points) => {
+      if (index === points.length - 1 ) {
+        return perimeter + point.distance(points[0]);
       }
-      if (index === this.points.length - 1 ) {
-        return perimeter + point.distance(this.points[0]);
-      }
-      return perimeter + point.distance(this.points[index + 1]);
+      return perimeter + point.distance(points[index + 1]);
     }, 0)
   }
 }
