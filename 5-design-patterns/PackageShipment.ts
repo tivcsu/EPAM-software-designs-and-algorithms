@@ -22,7 +22,8 @@ export class PackageShipment extends Shipment {
   public ship() {
     this.getInstance()
     this.getShipmentId()
-    return `${this.shipment.shipmentId}: ${this.shipment.fromZipCode}, ${this.shipment.fromAddress} - ${this.shipment.toZipCode}, ${this.shipment.ToAddress}, ${this.shipper.getCost()}`
+    return `Shipment with the ID ${this.shipment.shipmentId} will be picked up from ${this.shipment.fromAddress} ${this.shipment.fromZipCode} and shipped to ${this.shipment.ToAddress} ${this.shipment.toZipCode}
+    Cost = ${this.shipper.getCost()}`
   }
   private getShipper (zip: string) {
     const chicagoValues = ['4', '5', '6']
