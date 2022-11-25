@@ -11,7 +11,7 @@ export const mockShipment: IShipmentInstance = {
   shipmentId: 0,
   weight: 10,
   fromAddress: 'From Address',
-  fromZipCode: '1111',
+  fromZipCode: '9111',
   ToAddress: 'To Address',
   toZipCode: '2222'
 }
