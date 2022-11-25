@@ -3,6 +3,15 @@ import { IShipper } from './Shipper';
 
 export class ChicagoSprintShipper implements IShipper {
   protected shipmentInstance: IShipmentInstance
+  private cost: number
+  private extraCost: number
+
+  constructor(cost: number)
+  constructor(cost: number, extraCost: number)
+  constructor(cost: number, extraCost?: number) {
+    this.cost = cost
+    this.extraCost = extraCost ?? 0
+  }
 
   public getInstance() {
     this.shipmentInstance = mockShipment
@@ -10,6 +19,6 @@ export class ChicagoSprintShipper implements IShipper {
   }
   public getCost() {
     this.getInstance()
-    return this.shipmentInstance.weight * 42
+    return this.shipmentInstance.weight * this.cost
   }
 }
